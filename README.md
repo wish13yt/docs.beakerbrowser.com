@@ -3,8 +3,8 @@
 ## Progress
 Directories
 <br>
-![40%](https://progress-bar.xyz/70)
+![60%](https://progress-bar.xyz/60)
 <br>
 Translation into HTML
 <br>
-![10%](https://progress-bar.xyz/10)
+![30%](https://progress-bar.xyz/30)

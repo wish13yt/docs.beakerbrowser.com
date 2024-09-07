@@ -1,48 +1,37 @@
----
-title: Frontends (.ui folder)
----
-
-The standard behavior of `hyper://` is to serve whichever file is referenced by the URL. This works fine for simple use-cases, but struggles with two use-cases:
-
-1. Sites which need a consistent theme and template applied across each page.
-2. Applications which need to serve interfaces even where a file does not exist (as in the [Single Page Application](https://en.wikipedia.org/wiki/Single-page_application) pattern).
-
-To solve this, the `hyper://` protocol supports a behavior called "Frontends."
-
-## How frontends work
-
-A Frontend is simply an html file found at `/.ui/ui.html`. This file is used to provide a consistent interface for the site. It is served _rather_ _than_ the target file in the following cases:
-
-* No file exists at the target URL.
-* The target URL is a folder.
-* The "Accept" header includes text/html (which indicates the browser is asking for a "page").
-
-Because the Frontend effectively overrides all page-serving, it can render whatever the site author wants. A common pattern is to use JavaScript to read whatever file is referenced by `window.location.pathname` and then place that in the UI, as in this example snippet:
-
-```markup title="/.ui/ui.html"
-<body>
+<p>The standard behavior of <code>hyper://</code> is to serve whichever file is referenced by the URL. This works fine for simple use-cases, but struggles with two use-cases:</p>
+<ol>
+<li>Sites which need a consistent theme and template applied across each page.</li>
+<li>Applications which need to serve interfaces even where a file does not exist (as in the <a href="https://en.wikipedia.org/wiki/Single-page_application">Single Page Application</a> pattern).</li>
+</ol>
+<p>To solve this, the <code>hyper://</code> protocol supports a behavior called &quot;Frontends.&quot;</p>
+<h2 id="how-frontends-work">How frontends work</h2>
+<p>A Frontend is simply an html file found at <code>/.ui/ui.html</code>. This file is used to provide a consistent interface for the site. It is served <em>rather</em> <em>than</em> the target file in the following cases:</p>
+<ul>
+<li>No file exists at the target URL.</li>
+<li>The target URL is a folder.</li>
+<li>The &quot;Accept&quot; header includes text/html (which indicates the browser is asking for a &quot;page&quot;).</li>
+</ul>
+<p>Because the Frontend effectively overrides all page-serving, it can render whatever the site author wants. A common pattern is to use JavaScript to read whatever file is referenced by <code>window.location.pathname</code> and then place that in the UI, as in this example snippet:</p>
+<p>title=&quot;/.ui/ui.html&quot;</p>
+<p><body>
   <main></main>
-</body>
-<script>
+</body></p>
+<p>
 async function setup () {
-  var main = document.querySelector('main')
-  if (location.pathname.endsWith('.html')) {
-    let html = await beaker.hyperdrive.readFile(location.pathname).catch(e => `<h1>404 not found<h1>`)
+  var main = document.querySelector(&#39;main&#39;)
+  if (location.pathname.endsWith(&#39;.html&#39;)) {
+    let html = await beaker.hyperdrive.readFile(location.pathname).catch(e =&gt; <code>&lt;h1&gt;404 not found&lt;h1&gt;</code>)
     main.innerHTML = html
-  } else if (location.pathname.endsWith('.jpg')) {
-    main.innerHTML = `<img src="${location.pathname}">`
+  } else if (location.pathname.endsWith(&#39;.jpg&#39;)) {
+    main.innerHTML = <code>&lt;img src=&quot;${location.pathname}&quot;&gt;</code>
   } // etc...
 }
 setup()
-</script>
-```
+</p>
+<pre><code>
+<span class="hljs-comment">## Mounted frontends</span>
 
-## Mounted frontends
+An advantage <span class="hljs-keyword">of</span> Frontends <span class="hljs-keyword">is</span> <span class="hljs-keyword">that</span> they are stored <span class="hljs-keyword">in</span> a subfolder. This makes <span class="hljs-keyword">it</span> possible <span class="hljs-keyword">for</span> frontends <span class="hljs-keyword">to</span> be their own Hyperdrive sites which are mounted <span class="hljs-keyword">to</span> `/.ui`.
 
-An advantage of Frontends is that they are stored in a subfolder. This makes it possible for frontends to be their own Hyperdrive sites which are mounted to `/.ui`.
-
-```markup
-|12345..af> mount $my_frontend_drive_url /.ui
-```
-
-Frontend hyperdrives can then be published and shared across multiple sites.
+|<span class="hljs-number">12345.</span>.af&gt; mount $my_frontend_drive_url /.ui
+</code></pre><p>Frontend hyperdrives can then be published and shared across multiple sites.</p>

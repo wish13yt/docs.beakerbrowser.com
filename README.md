@@ -7,4 +7,4 @@ Directories
 <br>
 Translation into HTML
 <br>
-![30%](https://progress-bar.xyz/30)
+![43%](https://progress-bar.xyz/43)

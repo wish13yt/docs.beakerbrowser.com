@@ -1,16 +1,8 @@
----
-title: Goto Files
----
-
-A .goto file is a shortcut file used by Beaker in many different contexts. All bookmarks, for instance, are saved as .goto files in the user's system drive.
-
-A .goto file is not expected to have any content. Instead, it has two [metadata attributes](introduction-to-hyperdrive.md#file-kv-metadata):
-
-* **`title`**. The title of the resource being pointed to by the .goto file.
-* **`href`**. The URL of the resource being pointed to by the .goto file.
-
-When a .goto file is visited on the `hyper://` protocol, Beaker will automatically redirect to its `href` value.
-
-:::note
-You can create .goto files using [Webterm](advanced/webterm.md) with the **mkgoto** command.
-:::
+<p>A .goto file is a shortcut file used by Beaker in many different contexts. All bookmarks, for instance, are saved as .goto files in the user&#39;s system drive.</p>
+<p>A .goto file is not expected to have any content. Instead, it has two <a href="introduction-to-hyperdrive.md#file-kv-metadata">metadata attributes</a>:</p>
+<ul>
+<li><strong><code>title</code></strong>. The title of the resource being pointed to by the .goto file.</li>
+<li><strong><code>href</code></strong>. The URL of the resource being pointed to by the .goto file.</li>
+</ul>
+<p>When a .goto file is visited on the <code>hyper://</code> protocol, Beaker will automatically redirect to its <code>href</code> value.</p>
+<p>You can create .goto files using <a href="advanced/webterm.md">Webterm</a> with the <strong>mkgoto</strong> command.</p>

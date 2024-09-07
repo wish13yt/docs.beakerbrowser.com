@@ -1,36 +1,16 @@
----
-title: Index.json Manifest
----
-
-Every hyperdrive has a manifest file at `/index.json`. This file is used by the browser to store various kinds of metadata, including the title and description of the drive.
-
-:::note
-Note: the manifest schema is still under development and may change.
-:::
-
-An example manifest:
-
-```json
-{
-  "title": "My Hyper Website",
-  "description": "An example hyperdrive"
-}
-```
-
-## Manifest schema
-
-### .title
-
-A string identifying the title of the drive.
-
-### .description
-
-A string providing a description of the drive's contents.
-
-### .forkOf
-
-A string identifying the URL of a drive which this drive has forked.
-
-### .csp
-
-A string specifying the [Content-Security Policy header](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) to use in all drive resources.
+<p>Every hyperdrive has a manifest file at <code>/index.json</code>. This file is used by the browser to store various kinds of metadata, including the title and description of the drive.</p>
+<p>Note: the manifest schema is still under development and may change.</p>
+<p>An example manifest:</p>
+<p>{
+  &quot;title&quot;: &quot;My Hyper Website&quot;,
+  &quot;description&quot;: &quot;An example hyperdrive&quot;
+}</p>
+<h2 id="manifest-schema">Manifest schema</h2>
+<h3 id="-title">.title</h3>
+<p>A string identifying the title of the drive.</p>
+<h3 id="-description">.description</h3>
+<p>A string providing a description of the drive&#39;s contents.</p>
+<h3 id="-forkof">.forkOf</h3>
+<p>A string identifying the URL of a drive which this drive has forked.</p>
+<h3 id="-csp">.csp</h3>
+<p>A string specifying the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">Content-Security Policy header</a> to use in all drive resources.</p>
